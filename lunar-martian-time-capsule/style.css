@@ -1,0 +1,2072 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #080d18;
+  --surface: #101a2a;
+  --surface-light: #172438;
+  --text: #f3f6fc;
+  --muted: #9aa9bc;
+  --gold: #e9b96b;
+  --cyan: #6dd5e8;
+  --line: rgba(255,255,255,.11);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: .3;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, white 99%, transparent),
+    radial-gradient(1px 1px at 70% 60%, white 99%, transparent),
+    radial-gradient(2px 2px at 40% 80%, white 99%, transparent),
+    radial-gradient(1px 1px at 85% 15%, white 99%, transparent);
+  background-size: 190px 190px, 250px 250px, 300px 300px, 220px 220px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  height: 78px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(8,13,24,.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.brand strong {
+  color: var(--gold);
+}
+
+.brand-icon {
+  color: var(--gold);
+  font-size: 27px;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar nav a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: color .3s;
+}
+
+.navbar nav a:hover {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  color: white;
+  background: transparent;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 680px;
+  height: min(790px, calc(100vh - 78px));
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 70px 9%;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 50%, #28354b 0%, #111a2a 38%, #080d18 75%);
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: .72;
+  transition: opacity .8s;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(5,10,20,.97) 0%,
+    rgba(5,10,20,.85) 42%,
+    rgba(5,10,20,.15) 100%);
+}
+
+.hero-content {
+  max-width: 760px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  line-height: 1.7;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(42px, 6.4vw, 82px);
+  line-height: 1.08;
+  letter-spacing: -3px;
+  margin: 24px 0;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero-content > p {
+  color: #c1ccda;
+  max-width: 580px;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 23px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #10131a;
+  border: 1px solid var(--gold);
+}
+
+.btn-primary:hover {
+  background: #f5ce91;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255,255,255,.45);
+  color: white;
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hero-note {
+  margin-top: 48px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #c5ced9;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #79d7b1;
+  box-shadow: 0 0 12px #79d7b1;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  right: 9%;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.hero-scroll span {
+  color: var(--gold);
+  margin-left: 8px;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 105px 9%;
+}
+
+.section h2, .story-content h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 4vw, 49px);
+  line-height: 1.16;
+  letter-spacing: -1.5px;
+  margin-top: 15px;
+}
+
+.section-description {
+  color: var(--muted);
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro-text p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.section-top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+/* PLANET CARDS */
+
+.planet-section {
+  padding-bottom: 70px;
+}
+
+.planet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.planet-card {
+  height: 390px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: end;
+  padding: 34px;
+  background-size: cover;
+  background-position: center;
+  transition: transform .4s, border-color .4s;
+}
+
+.moon-card {
+  background-image: linear-gradient(0deg, #080d18 0%, transparent 90%),
+    url("https://images-assets.nasa.gov/image/as11-40-5875/as11-40-5875~large.jpg");
+}
+
+.mars-card {
+  background-image: linear-gradient(0deg, #080d18 0%, transparent 90%),
+    url("https://images-assets.nasa.gov/image/PIA19808/PIA19808~large.jpg");
+}
+
+.planet-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.planet-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.planet-label {
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.planet-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 40px;
+  margin: 8px 0;
+}
+
+.planet-card p {
+  color: #c7d0dc;
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 350px;
+}
+
+.planet-link {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+/* STATS */
+
+.stats-section {
+  padding: 55px 9%;
+  background: #101827;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 20px;
+}
+
+.stat strong {
+  display: block;
+  color: var(--gold);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  margin-top: 8px;
+}
+
+/* EXPLORER */
+
+.filter-panel {
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 220px;
+  gap: 10px;
+  color: var(--gold);
+}
+
+.search-box span {
+  font-size: 25px;
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 13px;
+}
+
+.search-box input::placeholder {
+  color: #8290a2;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-controls select {
+  background: #1a293d;
+  border: 1px solid var(--line);
+  color: white;
+  padding: 12px;
+  outline: none;
+  border-radius: 3px;
+  font-size: 12px;
+  max-width: 190px;
+}
+
+.results-line {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin: 23px 0;
+}
+
+.object-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.object-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .3s, border-color .3s;
+}
+
+.object-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.object-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  background: #182439;
+}
+
+.object-image-placeholder {
+  height: 210px;
+  background: linear-gradient(135deg, #1d3046, #101827);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: 36px;
+}
+
+.object-info {
+  padding: 20px;
+}
+
+.object-tag {
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.object-info h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 12px 0 7px;
+}
+
+.object-info p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.object-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #aab8c8;
+  font-size: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.card-more {
+  color: var(--gold);
+}
+
+.empty-state {
+  padding: 60px 15px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.empty-state h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* STORY SECTION */
+
+.story-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 440px;
+  background: #101827;
+  overflow: hidden;
+}
+
+.story-visual {
+  min-height: 440px;
+  position: relative;
+  background:
+    radial-gradient(circle at center, #293f59, #111b2b 50%, #080d18 78%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.story-planet {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #c7d0d7, #6e8297 48%, #253449 75%);
+  box-shadow: 0 0 80px rgba(122,164,205,.2);
+}
+
+.story-orbit {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(233,185,107,.3);
+  border-radius: 50%;
+  transform: rotateX(65deg);
+}
+
+.story-star {
+  position: absolute;
+  color: var(--gold);
+  font-size: 30px;
+}
+
+.star-one { top: 25%; left: 27%; }
+.star-two { bottom: 25%; right: 25%; }
+
+.story-content {
+  padding: 90px 12%;
+  align-self: center;
+}
+
+.story-content p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 20px 0;
+}
+
+.text-link {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* SOURCES */
+
+.sources-section {
+  padding-top: 100px;
+}
+
+.source-links {
+  margin-top: 35px;
+  border-top: 1px solid var(--line);
+}
+
+.source-links a {
+  display: grid;
+  grid-template-columns: 50px 1fr 25px;
+  gap: 15px;
+  align-items: center;
+  padding: 22px 5px;
+  border-bottom: 1px solid var(--line);
+  transition: color .3s;
+}
+
+.source-links a span {
+  color: var(--gold);
+  font-size: 11px;
+}
+
+.source-links a strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.source-links a:hover strong {
+  color: var(--gold);
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 55px 9%;
+  background: #050912;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.footer .brand {
+  justify-content: center;
+}
+
+.footer > p {
+  color: var(--gold);
+  margin: 20px 0 10px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.footer small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.copyright {
+  margin-top: 20px;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.82);
+  backdrop-filter: blur(8px);
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 2;
+  width: min(850px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #101a2a;
+  border: 1px solid var(--line);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 17px;
+  z-index: 5;
+  background: rgba(0,0,0,.65);
+  color: white;
+  border: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modal-image-wrap {
+  height: 300px;
+  position: relative;
+  background: #172438;
+}
+
+.modal-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-planet {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  padding: 8px 13px;
+  background: rgba(8,13,24,.8);
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.modal-content {
+  padding: 30px;
+}
+
+.modal-content h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.modal-content h3 {
+  font-size: 14px;
+  margin: 23px 0 7px;
+  color: var(--gold);
+}
+
+.modal-content p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.modal-mission {
+  margin-bottom: 20px;
+}
+
+.modal-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 18px;
+  background: #172438;
+}
+
+.modal-facts span, .modal-facts strong {
+  display: block;
+}
+
+.modal-facts span {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.modal-facts strong {
+  font-size: 13px;
+}
+
+.evidence-note {
+  padding: 16px;
+  margin: 22px 0;
+  border-left: 3px solid var(--gold);
+  background: #172438;
+}
+
+.evidence-note strong {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.evidence-note p {
+  margin-top: 6px;
+}
+
+.modal-content > .btn {
+  margin-top: 8px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .object-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .section {
+    padding: 80px 6%;
+  }
+
+  .hero {
+    padding: 60px 6%;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    height: 68px;
+  }
+
+  .brand {
+    font-size: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar nav {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background: #0c1422;
+    padding: 25px 7%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar nav.active {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 660px;
+    height: auto;
+    padding: 90px 7%;
+  }
+
+  .hero-shade {
+    background: linear-gradient(90deg,
+      rgba(5,10,20,.95), rgba(5,10,20,.6));
+  }
+
+  .hero h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .intro, .story-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .planet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planet-card {
+    height: 330px;
+  }
+
+  .stats-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .object-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-panel {
+    flex-direction: column;
+  }
+
+  .filter-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-controls select {
+    width: 100%;
+    max-width: none;
+  }
+
+  .results-line {
+    gap: 12px;
+    line-height: 1.6;
+  }
+
+  .story-content {
+    padding: 60px 7%;
+  }
+
+  .story-visual {
+    min-height: 330px;
+  }
+
+  .modal-content {
+    padding: 22px;
+  }
+
+  .modal-image-wrap {
+    height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+
+
+/* ==========================================
+   PHASE 9.1 — INTERACTIVE MOON EXPLORER
+========================================== */
+
+.moon-map-layout {
+  display: grid;
+  grid-template-columns: 1.65fr 0.85fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.moon-map-panel,
+.moon-site-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.map-heading {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px 20px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+}
+
+.map-coordinate-note {
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.moon-map {
+  position: relative;
+  overflow: hidden;
+  background: #101a2a;
+}
+
+.moon-map svg {
+  width: 100%;
+  display: block;
+}
+
+.map-grid {
+  fill: none;
+  stroke: rgba(255,255,255,.12);
+  stroke-width: 1;
+  stroke-dasharray: 5 8;
+}
+
+.moon-marker {
+  cursor: pointer;
+  outline: none;
+}
+
+.moon-marker circle.marker-halo {
+  fill: rgba(233,185,107,.15);
+  stroke: var(--gold);
+  stroke-width: 2;
+  transition: r .2s, fill .2s;
+}
+
+.moon-marker.apollo-marker circle.marker-core {
+  fill: var(--gold);
+}
+
+.moon-marker.robotic-marker circle.marker-core {
+  fill: var(--cyan);
+}
+
+.moon-marker:hover circle.marker-halo,
+.moon-marker:focus circle.marker-halo,
+.moon-marker.selected circle.marker-halo {
+  r: 17;
+  fill: rgba(233,185,107,.35);
+}
+
+.moon-marker text {
+  fill: white;
+  font-size: 12px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: #101a2a;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.map-legend {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.legend-dot.apollo {
+  background: var(--gold);
+}
+
+.legend-dot.robotic {
+  background: var(--cyan);
+}
+
+.moon-site-panel {
+  padding: 27px;
+}
+
+.moon-site-panel h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 25px;
+  margin: 13px 0;
+}
+
+.moon-site-panel > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.moon-site-facts {
+  display: grid;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 17px;
+  background: var(--surface-light);
+}
+
+.moon-site-facts span,
+.moon-site-facts strong {
+  display: block;
+}
+
+.moon-site-facts span {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.moon-site-facts strong {
+  font-size: 12px;
+}
+
+.moon-site-panel h4 {
+  color: var(--gold);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.moon-object-link {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 8px;
+  text-align: left;
+  background: var(--surface-light);
+  border: 1px solid var(--line);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+  transition: border-color .2s;
+}
+
+.moon-object-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.map-disclaimer {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+
+@media (max-width: 850px) {
+  .moon-map-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .map-heading {
+    flex-direction: column;
+  }
+
+  .moon-site-panel {
+    padding: 20px;
+  }
+}
+
+/* =====================================================
+   PHASE 9.2 — INTERACTIVE MARS EXPLORER
+===================================================== */
+
+.mars-map-layout {
+  display: grid;
+  grid-template-columns: 1.65fr .85fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.mars-map-panel,
+.mars-site-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.mars-map {
+  position: relative;
+  overflow: hidden;
+  background: #171923;
+}
+
+.mars-map svg {
+  width: 100%;
+  display: block;
+}
+
+.mars-map-grid {
+  fill: none;
+  stroke: rgba(255, 255, 255, .13);
+  stroke-width: 1;
+  stroke-dasharray: 5 8;
+}
+
+.mars-map-labels {
+  fill: rgba(255, 255, 255, .55);
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+}
+
+.mars-marker {
+  cursor: pointer;
+  outline: none;
+}
+
+.mars-marker .marker-halo {
+  fill: rgba(233, 185, 107, .14);
+  stroke: var(--gold);
+  stroke-width: 2;
+  transition: r .2s, fill .2s;
+}
+
+.mars-marker.robotic-marker .marker-core {
+  fill: var(--cyan);
+}
+
+.mars-marker.rover-marker .marker-core {
+  fill: var(--gold);
+}
+
+.mars-marker.modern-marker .marker-core {
+  fill: #e77c65;
+}
+
+.mars-marker:hover .marker-halo,
+.mars-marker:focus .marker-halo,
+.mars-marker.selected .marker-halo {
+  r: 17;
+  fill: rgba(233, 185, 107, .35);
+}
+
+.mars-marker text {
+  fill: white;
+  font-size: 12px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: #171923;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.mars-site-panel {
+  padding: 27px;
+}
+
+.mars-site-panel h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 25px;
+  margin: 13px 0;
+}
+
+.mars-site-panel > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.mars-site-facts {
+  display: grid;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 17px;
+  background: var(--surface-light);
+}
+
+.mars-site-facts span,
+.mars-site-facts strong {
+  display: block;
+}
+
+.mars-site-facts span {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.mars-site-facts strong {
+  font-size: 12px;
+}
+
+.mars-site-panel h4 {
+  color: var(--gold);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.mars-object-link {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 8px;
+  text-align: left;
+  background: var(--surface-light);
+  border: 1px solid var(--line);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+  transition: border-color .2s, color .2s;
+}
+
+.mars-object-link:hover,
+.mars-object-link:focus {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+@media (max-width: 850px) {
+  .mars-map-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .mars-site-panel {
+    padding: 20px;
+  }
+
+  .mars-map-labels {
+    font-size: 9px;
+  }
+
+  .mars-marker text {
+    font-size: 10px;
+  }
+}
+
+/* ==========================================
+   PHASE 9.3 — CLICKABLE EQUIPMENT MARKERS
+========================================== */
+
+.equipment-explorer {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.equipment-explorer[hidden] {
+  display: none !important;
+}
+
+.equipment-heading {
+  margin-bottom: 12px;
+}
+
+.equipment-heading p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.equipment-map {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,.07), transparent 70%),
+    var(--surface-light);
+}
+
+.equipment-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.equipment-terrain {
+  fill: none;
+  stroke: rgba(255,255,255,.13);
+  stroke-width: 1;
+  stroke-dasharray: 4 7;
+}
+
+.equipment-marker {
+  cursor: pointer;
+  outline: none;
+}
+
+.equipment-marker .equipment-halo {
+  fill: rgba(233,185,107,.15);
+  stroke: var(--gold);
+  stroke-width: 2;
+  transition: fill .2s, stroke-width .2s;
+}
+
+.equipment-marker .equipment-core {
+  fill: var(--cyan);
+}
+
+.equipment-marker:hover .equipment-halo,
+.equipment-marker:focus .equipment-halo,
+.equipment-marker.selected .equipment-halo {
+  fill: rgba(233,185,107,.4);
+  stroke-width: 3;
+}
+
+.equipment-marker:focus .equipment-halo {
+  stroke: white;
+}
+
+.equipment-marker text {
+  fill: var(--text);
+  font-size: 10px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--surface-light);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.equipment-info {
+  min-height: 105px;
+  margin-top: 12px;
+  padding: 15px;
+  background: var(--surface-light);
+  border: 1px solid var(--line);
+}
+
+.equipment-info h4 {
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.equipment-info p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.equipment-action {
+  margin-top: 12px;
+  padding: 9px 13px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.equipment-action:hover,
+.equipment-action:focus {
+  background: var(--gold);
+  color: #151515;
+}
+
+.equipment-map-note {
+  margin: 0;
+  padding: 10px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+  .equipment-explorer {
+    margin-top: 18px;
+  }
+
+  .equipment-info {
+    padding: 12px;
+  }
+
+  .equipment-marker text {
+    font-size: 11px;
+  }
+
+  .equipment-action {
+    width: 100%;
+    min-height: 42px;
+  }
+}
+
+/* =========================================
+   PHASE 9.4 — INTERACTIVE MISSION TIMELINE
+========================================= */
+
+.mission-timeline-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-intro {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 30px;
+  align-items: end;
+  padding: 26px 0;
+  margin: 20px 0 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline-intro-label {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.timeline-intro h3 {
+  margin: 10px 0 0;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.timeline-intro p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.timeline-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.timeline-filter {
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: var(--surface-light);
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  transition: 0.25s ease;
+}
+
+.timeline-filter:hover,
+.timeline-filter:focus-visible {
+  border-color: var(--cyan);
+  color: var(--text);
+  outline: none;
+}
+
+.timeline-filter.active {
+  background: rgba(90, 210, 220, 0.12);
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.timeline-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.mission-timeline {
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.mission-timeline::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 105px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--gold),
+    var(--cyan),
+    transparent
+  );
+}
+
+.timeline-event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 50px;
+  margin-bottom: 24px;
+}
+
+.timeline-date {
+  position: relative;
+  padding-top: 24px;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.timeline-date::after {
+  content: "";
+  position: absolute;
+  top: 29px;
+  right: -32px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--surface-light);
+  box-shadow: 0 0 0 2px rgba(220, 180, 100, 0.2);
+  z-index: 1;
+}
+
+.timeline-event[data-planet="Mars"] .timeline-date {
+  color: var(--cyan);
+}
+
+.timeline-event[data-planet="Mars"] .timeline-date::after {
+  background: var(--cyan);
+  box-shadow: 0 0 0 2px rgba(80, 200, 220, 0.2);
+}
+
+.timeline-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-light);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.timeline-card:hover {
+  border-color: rgba(90, 210, 220, 0.55);
+  transform: translateY(-2px);
+}
+
+.timeline-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.timeline-planet-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--cyan);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.timeline-event[data-planet="Moon"] .timeline-planet-tag {
+  color: var(--gold);
+}
+
+.timeline-planet-tag::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.timeline-card h3 {
+  margin: 0 0 9px;
+  font-size: 1.2rem;
+}
+
+.timeline-event-date {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.timeline-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+}
+
+.timeline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timeline-action {
+  min-height: 38px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  transition: 0.2s ease;
+}
+
+.timeline-action:hover,
+.timeline-action:focus-visible {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  outline: none;
+}
+
+.timeline-action.primary {
+  border-color: rgba(90, 210, 220, 0.45);
+  background: rgba(90, 210, 220, 0.08);
+}
+
+.timeline-disclaimer {
+  max-width: 950px;
+  margin: 25px auto 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.timeline-empty {
+  padding: 35px 20px;
+  color: var(--muted);
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+
+@media (max-width: 650px) {
+  .timeline-intro {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .timeline-summary {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .mission-timeline {
+    padding-left: 0;
+  }
+
+  .mission-timeline::before {
+    left: 13px;
+  }
+
+  .timeline-event {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-left: 36px;
+    margin-bottom: 20px;
+  }
+
+  .timeline-date {
+    padding: 0;
+    text-align: left;
+  }
+
+  .timeline-date::after {
+    top: 3px;
+    left: -28px;
+    right: auto;
+  }
+
+  .timeline-card {
+    padding: 17px;
+  }
+
+  .timeline-actions {
+    flex-direction: column;
+  }
+
+  .timeline-action {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  .timeline-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  }
+}
+
+/* =========================================
+   PHASE 9.5 — SCIENTIFIC EVIDENCE VIEWER
+========================================= */
+
+.scientific-evidence {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+}
+
+.evidence-heading h3 {
+  margin: 10px 0;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 21px;
+}
+
+.evidence-heading > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.evidence-status {
+  display: inline-flex;
+  align-items: center;
+  margin: 18px 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(109, 213, 232, 0.3);
+  border-radius: 4px;
+  color: var(--cyan);
+  background: rgba(109, 213, 232, 0.07);
+  font-size: 10px;
+  letter-spacing: 0.7px;
+}
+
+.evidence-records {
+  display: grid;
+  gap: 13px;
+}
+
+.evidence-record {
+  padding: 17px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.evidence-record-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.evidence-type {
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.evidence-scope {
+  color: var(--cyan);
+  font-size: 9px;
+  letter-spacing: 0.7px;
+}
+
+.evidence-record h4 {
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.evidence-record p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.evidence-record a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.evidence-record a:hover,
+.evidence-record a:focus-visible {
+  color: var(--gold);
+  outline: none;
+  text-decoration: underline;
+}
+
+.evidence-limitation {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.evidence-limitation strong {
+  color: var(--gold);
+}
+
+.evidence-provenance {
+  margin-top: 17px;
+  padding: 14px;
+  border-left: 3px solid var(--gold);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.evidence-archive-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.evidence-archive-link:hover {
+  color: var(--cyan);
+}
+
+@media (max-width: 650px) {
+  .evidence-record {
+    padding: 14px;
+  }
+
+  .evidence-record-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .evidence-heading h3 {
+    font-size: 18px;
+  }
+}
+
+/* ==========================================
+   PHASE 9.7 — TABLET NAVIGATION OPTIMISATION
+========================================== */
+
+@media (min-width: 651px) and (max-width: 1000px) {
+
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar nav {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: #0c1422;
+    padding: 25px 7%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar nav.active {
+    display: flex;
+  }
+}
+
+
+/* ==========================================
+   PHASE 9.7 — CROSS-DEVICE OPTIMISATION
+========================================== */
+
+/* TABLET NAVIGATION */
+@media (min-width: 651px) and (max-width: 1000px) {
+
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .navbar nav {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
+    background: #0c1422;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar nav.active {
+    display: flex;
+  }
+
+  .navbar nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* MOBILE TOUCH ACCESSIBILITY */
+@media (max-width: 650px) {
+
+  .menu-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    display: grid;
+    place-items: center;
+  }
+
+  .navbar nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* VISIBLE KEYBOARD FOCUS */
+.navbar nav a:focus-visible,
+.menu-toggle:focus-visible,
+.planet-card:focus-visible,
+.object-card:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+/* PREVENT MEDIA FROM EXCEEDING ITS CONTAINER */
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+.moon-map svg,
+.mars-map svg,
+.equipment-map svg {
+  height: auto;
+}
+
+/* PREVENT MODAL CONTENT FROM EXCEEDING SMALL SCREENS */
+.modal-panel {
+  max-width: 100%;
+  overscroll-behavior: contain;
+}
+
+.modal-content {
+  overflow-wrap: anywhere;
+}
+
+/* IMPROVE SMALL-SCREEN TIMELINE AND FILTER LAYOUT */
+@media (max-width: 500px) {
+
+  .timeline-card {
+    padding: 14px;
+  }
+
+  .filter-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal-content {
+    padding: 17px;
+  }
+
+  .modal-content h2 {
+    font-size: 25px;
+  }
+}
+

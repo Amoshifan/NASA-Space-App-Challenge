@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the human-made objects left behind on the Moon and Mars. Discover their missions, scientific legacy and stories.">
+  <meta name="theme-color" content="#080d18">
+  <title>Lunar & Martian Time Capsule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <a href="#home" class="brand">
+      <span class="brand-icon">✦</span>
+      <span>PLANETARY <strong>TIME CAPSULE</strong></span>
+    </a>
+
+    <nav id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#museum">Digital Museum</a>
+      <a href="#moon-explorer">Moon</a>
+      <a href="#mars-explorer">Mars</a>
+      <a href="#mission-timeline">Timeline</a>
+      <a href="#explorer">Object Catalogue</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-image" id="heroImage"></div>
+      <div class="hero-shade"></div>
+
+      <div class="hero-content">
+        <span class="eyebrow">A JOURNEY THROUGH PLANETARY HISTORY</span>
+
+        <h1>They Left the Earth.<br>
+          <span>Their Stories Remain.</span>
+        </h1>
+
+        <p>
+          Explore the spacecraft, instruments, rovers and equipment
+          humanity has left behind on the Moon and Mars.
+          Every object has a story. Every story preserves a legacy.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#explorer" class="btn btn-primary">Explore the Objects ↗</a>
+          <a href="#about" class="btn btn-outline">Discover Our Mission</a>
+        </div>
+
+        <div class="hero-note">
+          <span class="live-dot"></span>
+          A DIGITAL MUSEUM OF HUMANITY'S PLANETARY LEGACY
+        </div>
+      </div>
+
+      <div class="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="intro section" id="about">
+      <div class="section-heading">
+        <span class="eyebrow">BEYOND THE MISSION</span>
+        <h2>Not Everything We Send<br>Into Space Comes Back.</h2>
+      </div>
+
+      <div class="intro-text">
+        <p>
+          From Apollo's lunar landing hardware to robotic explorers on Mars,
+          human exploration has left a remarkable physical record across
+          our neighbouring worlds.
+        </p>
+        <p>
+          These objects are more than abandoned equipment. They are
+          historical evidence, engineering achievements and reminders
+          of humanity's curiosity.
+        </p>
+      </div>
+    </section>
+
+    <!-- PLANET FEATURE CARDS -->
+    <section class="planet-section section" id="museum">
+      <div class="section-top">
+        <div>
+          <span class="eyebrow">TWO WORLDS. ONE HUMAN LEGACY.</span>
+          <h2>Choose Your Destination</h2>
+        </div>
+      </div>
+
+      <div class="planet-grid">
+        <a href="#moon-explorer" class="planet-card moon-card"
+          data-planet-link="Moon">
+          <div class="planet-card-content">
+            <span class="planet-label">DESTINATION 01</span>
+            <h3>The Moon</h3>
+            <p>Explore the legacy of Apollo and robotic lunar missions.</p>
+            <span class="planet-link">Explore lunar heritage ↗</span>
+          </div>
+        </a>
+
+        <a href="#mars-explorer" class="planet-card mars-card"
+          data-planet-link="Mars">
+          <div class="planet-card-content">
+            <span class="planet-label">DESTINATION 02</span>
+            <h3>Mars</h3>
+            <p>Discover the robotic explorers that transformed our view of Mars.</p>
+            <span class="planet-link">Explore Martian heritage ↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="stats-section">
+      <div class="stat">
+        <strong id="totalObjects">20</strong>
+        <span>OBJECTS IN OUR INITIAL CATALOGUE</span>
+      </div>
+      <div class="stat">
+        <strong>02</strong>
+        <span>PLANETARY DESTINATIONS</span>
+      </div>
+      <div class="stat">
+        <strong>NASA</strong>
+        <span>RESEARCH-LED SOURCES</span>
+      </div>
+    </section>
+        
+    <!-- INTERACTIVE MOON EXPLORER -->
+    <section class="moon-explorer section" id="moon-explorer">
+      <div class="section-top">
+        <div>
+          <span class="eyebrow">INTERACTIVE LUNAR ATLAS</span>
+          <h2>Explore the Moon</h2>
+          <p class="section-description">
+            Visit historic landing sites and discover the equipment
+            left behind by lunar exploration missions.
+          </p>
+        </div>
+      </div>
+
+      <div class="moon-map-layout">
+        <div class="moon-map-panel">
+          <div class="map-heading">
+            <span>MOON · LUNAR LANDING SITES</span>
+            <span class="map-coordinate-note">Approximate coordinates</span>
+          </div>
+
+          <div class="moon-map" id="moonMap">
+            <svg id="moonMapSvg"
+                viewBox="0 0 1000 500"
+                role="img"
+                aria-label="Coordinate map showing historic lunar landing sites">
+
+              <defs>
+                <radialGradient id="lunarSurface">
+                  <stop offset="0%" stop-color="#c7c9c9"/>
+                  <stop offset="65%" stop-color="#858c94"/>
+                  <stop offset="100%" stop-color="#333e4c"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="1000" height="500" fill="#101a2a"/>
+
+              <circle cx="500" cy="250" r="0" fill="none"/>
+
+              <g class="map-grid">
+                <path d="M0 125 H1000 M0 250 H1000 M0 375 H1000"/>
+                <path d="M250 0 V500 M500 0 V500 M750 0 V500"/>
+              </g>
+
+              <g id="moonMarkers"></g>
+            </svg>
+
+            <div class="map-legend">
+              <span><i class="legend-dot apollo"></i> Apollo</span>
+              <span><i class="legend-dot robotic"></i> Robotic mission</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="moon-site-panel">
+          <span class="eyebrow">SELECT A LANDING SITE</span>
+          <h3 id="moonSiteTitle">Lunar Heritage</h3>
+          <p id="moonSiteDescription">
+            Select a marker on the map to explore a historic lunar mission.
+          </p>
+
+          <div class="moon-site-facts">
+            <div>
+              <span>MISSION</span>
+              <strong id="moonSiteMission">—</strong>
+            </div>
+            <div>
+              <span>COORDINATES</span>
+              <strong id="moonSiteCoordinates">—</strong>
+            </div>
+          </div>
+
+          <h4>Associated objects</h4>
+          <div id="moonSiteObjects">
+            <p>Select a landing site to view its objects.</p>
+          </div>
+        </aside>
+      </div>
+
+    <div class="equipment-explorer" id="moonEquipmentExplorer" hidden>
+      <div class="equipment-heading">
+        <span class="eyebrow">EQUIPMENT VIEW</span>
+        <p>Select a marker to inspect an object.</p>
+      </div>
+
+      <div class="equipment-map" id="moonEquipmentMap"></div>
+
+      <div class="equipment-info" id="moonEquipmentInfo" aria-live="polite">
+        Select an equipment marker.
+      </div>
+    </div>
+
+      <p class="map-disclaimer">
+        Map is a simplified coordinate-based representation, not a
+        high-resolution lunar surface image. Coordinates are approximate.
+      </p>
+    </section>
+
+        <!-- PHASE 9.2 — INTERACTIVE MARS EXPLORER -->
+    <section class="mars-explorer section" id="mars-explorer">
+      <div class="section-top">
+        <div>
+          <span class="eyebrow">INTERACTIVE MARTIAN ATLAS</span>
+          <h2>Explore Mars</h2>
+          <p class="section-description">
+            Trace the landing sites of historic Mars missions and explore
+            the landers, rovers and mission hardware that remain on the planet.
+          </p>
+        </div>
+      </div>
+
+      <div class="mars-map-layout">
+        <div class="mars-map-panel">
+          <div class="map-heading">
+            <span>MARS · HISTORIC LANDING SITES</span>
+            <span class="map-coordinate-note">Planetocentric coordinates · East longitude</span>
+          </div>
+
+          <div class="mars-map" id="marsMap">
+            <svg id="marsMapSvg"
+                viewBox="0 0 1000 500"
+                role="img"
+                aria-label="Simplified coordinate map of historic Mars landing sites">
+
+              <defs>
+                <radialGradient id="marsSurface" cx="42%" cy="40%" r="70%">
+                  <stop offset="0%" stop-color="#c87955"/>
+                  <stop offset="55%" stop-color="#914b39"/>
+                  <stop offset="100%" stop-color="#452b2b"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="1000" height="500" fill="#171923"/>
+
+              <g class="mars-map-grid">
+                <path d="M0 83.3 H1000 M0 166.6 H1000 M0 250 H1000 M0 333.3 H1000 M0 416.6 H1000"/>
+                <path d="M166.6 0 V500 M333.3 0 V500 M500 0 V500 M666.6 0 V500 M833.3 0 V500"/>
+              </g>
+
+              <g class="mars-map-labels">
+                <text x="12" y="22">90° N</text>
+                <text x="12" y="254">0°</text>
+                <text x="12" y="490">90° S</text>
+                <text x="165" y="485">60° E</text>
+                <text x="330" y="485">120° E</text>
+                <text x="495" y="485">180° E</text>
+                <text x="660" y="485">240° E</text>
+                <text x="825" y="485">300° E</text>
+              </g>
+
+              <g id="marsMarkers"></g>
+            </svg>
+
+            <div class="map-legend">
+              <span><i class="legend-dot robotic"></i> Robotic lander</span>
+              <span><i class="legend-dot rover"></i> Rover mission</span>
+              <span><i class="legend-dot modern"></i> Recent mission</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="mars-site-panel">
+          <span class="eyebrow">SELECT A LANDING SITE</span>
+          <h3 id="marsSiteTitle">Martian Heritage</h3>
+
+          <p id="marsSiteDescription">
+            Select a marker on the map to explore a historic Mars mission.
+          </p>
+
+          <div class="mars-site-facts">
+            <div>
+              <span>MISSION</span>
+              <strong id="marsSiteMission">—</strong>
+            </div>
+
+            <div>
+              <span>LANDING REGION</span>
+              <strong id="marsSiteRegion">—</strong>
+            </div>
+
+            <div>
+              <span>COORDINATES</span>
+              <strong id="marsSiteCoordinates">—</strong>
+            </div>
+          </div>
+
+          <h4>Associated heritage objects</h4>
+          <div id="marsSiteObjects">
+            <p>Select a landing site to view its objects.</p>
+          </div>
+        </aside>
+      </div>
+      
+    <div class="equipment-explorer" id="marsEquipmentExplorer" hidden>
+      <div class="equipment-heading">
+        <span class="eyebrow">EQUIPMENT VIEW</span>
+        <p>Select a marker to inspect an object.</p>
+      </div>
+
+      <div class="equipment-map" id="marsEquipmentMap"></div>
+
+      <div class="equipment-info" id="marsEquipmentInfo" aria-live="polite">
+        Select an equipment marker.
+      </div>
+    </div>
+
+      <p class="map-disclaimer">
+        This is a simplified equirectangular coordinate map, not a photographic
+        or topographic Mars basemap. Landing coordinates are provided in
+        planetocentric latitude and east longitude; some published values vary
+        slightly according to reference frame and localization method.
+      </p>
+    </section>
+
+        <!-- PHASE 9.4 — INTERACTIVE MISSION TIMELINE -->
+    <section class="mission-timeline-section section" id="mission-timeline">
+      <div class="section-top">
+        <div>
+          <span class="eyebrow">A CHRONOLOGY OF EXPLORATION</span>
+          <h2>Every Mission Leaves a Legacy</h2>
+          <p class="section-description">
+            Travel through the missions that delivered scientific instruments,
+            landers, rovers and other equipment to the Moon and Mars.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-intro">
+        <div>
+          <span class="timeline-intro-label">1967 — PRESENT</span>
+          <h3>From the first lunar experiments to modern Mars exploration</h3>
+        </div>
+        <p>
+          Each milestone connects a mission's landing history with the
+          human-made objects documented in our planetary archive.
+        </p>
+      </div>
+
+      <div class="timeline-filters" role="group"
+          aria-label="Filter mission timeline">
+        <button class="timeline-filter active"
+                type="button" data-timeline-filter="All"
+                aria-pressed="true">All missions</button>
+        <button class="timeline-filter"
+                type="button" data-timeline-filter="Moon"
+                aria-pressed="false">Moon</button>
+        <button class="timeline-filter"
+                type="button" data-timeline-filter="Mars"
+                aria-pressed="false">Mars</button>
+      </div>
+
+      <div class="timeline-summary" aria-live="polite">
+        <span id="timelineResultCount">13 mission milestones</span>
+        <span>SELECT A MILESTONE TO EXPLORE</span>
+      </div>
+
+      <div class="mission-timeline" id="missionTimeline">
+        <!-- JavaScript generates the chronological timeline -->
+      </div>
+
+      <p class="timeline-disclaimer">
+        Dates shown are planetary landing dates, not launch dates.
+        Mission milestones are historical summaries; object locations
+        and equipment layouts are presented separately in the Planetary Explorer.
+      </p>
+    </section>
+
+       <!-- EXPLORER -->
+    <section class="explorer section" id="explorer">
+      <div class="section-top">
+        <div>
+          <span class="eyebrow">THE PLANETARY ARCHIVE</span>
+          <h2>Explore the Objects</h2>
+          <p class="section-description">
+            Search the initial catalogue of human-made objects on the Moon and Mars.
+          </p>
+        </div>
+      </div>
+
+      <div class="filter-panel">
+        <div class="search-box">
+          <span>⌕</span>
+          <input type="search" id="searchInput"
+            placeholder="Search objects, missions or keywords..."
+            aria-label="Search objects">
+        </div>
+
+        <div class="filter-controls">
+          <select id="planetFilter" aria-label="Filter by planet">
+            <option value="All">All destinations</option>
+            <option value="Moon">Moon</option>
+            <option value="Mars">Mars</option>
+          </select>
+
+          <select id="categoryFilter" aria-label="Filter by category">
+            <option value="All">All categories</option>
+            <option value="Scientific Instrument">Scientific instruments</option>
+            <option value="Landing Hardware">Landing hardware</option>
+            <option value="Rover">Rovers</option>
+            <option value="Mission Infrastructure">Mission infrastructure</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results-line">
+        <span id="resultCount">20 objects</span>
+        <span>SELECT AN OBJECT TO DISCOVER ITS STORY</span>
+      </div>
+
+      <div class="object-grid" id="objectGrid">
+        <!-- JavaScript generates the object cards -->
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <h3>No objects found</h3>
+        <p>Try another search term or change your filters.</p>
+      </div>
+    </section>
+
+    <!-- STORY FEATURE -->
+    <section class="story-section">
+      <div class="story-visual">
+        <div class="story-orbit"></div>
+        <div class="story-planet"></div>
+        <span class="story-star star-one">✦</span>
+        <span class="story-star star-two">✧</span>
+      </div>
+
+      <div class="story-content">
+        <span class="eyebrow">THE OBJECT SPEAKS</span>
+        <h2>Every Object<br>Has a Story.</h2>
+        <p>
+          What would a lunar lander say if it could tell its story?
+          Our storytelling experience transforms verified mission
+          records into accessible narratives while keeping historical
+          facts separate from creative interpretation.
+        </p>
+        <a href="#explorer" class="text-link">Discover the archive ↗</a>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="sources-section section">
+      <span class="eyebrow">BUILT ON REAL EXPLORATION DATA</span>
+      <h2>Follow the Evidence</h2>
+      <p class="section-description">
+        Our research begins with NASA archives, mission records and
+        planetary imaging resources.
+      </p>
+
+      <div class="source-links">
+        <a href="https://images.nasa.gov/" target="_blank" rel="noopener">
+          <span>01</span>
+          <strong>NASA Image and Video Library</strong>
+          <span>↗</span>
+        </a>
+        <a href="https://pds.nasa.gov/" target="_blank" rel="noopener">
+          <span>02</span>
+          <strong>NASA Planetary Data System</strong>
+          <span>↗</span>
+        </a>
+        <a href="https://www.uahirise.org/" target="_blank" rel="noopener">
+          <span>03</span>
+          <strong>HiRISE Mars Imaging</strong>
+          <span>↗</span>
+        </a>
+        <a href="https://science.nasa.gov/moon/" target="_blank" rel="noopener">
+          <span>04</span>
+          <strong>NASA Moon Exploration</strong>
+          <span>↗</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a href="#home" class="brand">
+      <span class="brand-icon">✦</span>
+      <span>PLANETARY <strong>TIME CAPSULE</strong></span>
+    </a>
+
+    <p>They Left the Earth. Their Stories Remain.</p>
+    <small>
+      An educational planetary heritage project.
+      NASA imagery and information are credited to their respective sources.
+    </small>
+    <small class="copyright">© 2026 Lunar & Martian Time Capsule</small>
+  </footer>
+
+  <!-- OBJECT DETAILS MODAL -->
+  <div class="modal" id="objectModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-panel" role="dialog"
+      aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose"
+        aria-label="Close details">×</button>
+
+      <div class="modal-image-wrap">
+        <img id="modalImage" src="" alt="">
+        <span id="modalPlanet" class="modal-planet"></span>
+      </div>
+
+      <div class="modal-content">
+        <span class="eyebrow" id="modalCategory"></span>
+        <h2 id="modalTitle"></h2>
+        <p class="modal-mission" id="modalMission"></p>
+
+        <div class="modal-facts">
+          <div><span>MISSION YEAR</span><strong id="modalYear"></strong></div>
+          <div><span>DESTINATION</span><strong id="modalLocation"></strong></div>
+        </div>
+
+        <h3>Original Purpose</h3>
+        <p id="modalPurpose"></p>
+
+        <h3>Why It Remains</h3>
+        <p id="modalReason"></p>
+
+        <h3>Scientific and Historical Legacy</h3>
+        <p id="modalLegacy"></p>
+
+        <div class="evidence-note">
+          <strong>Research note</strong>
+          <p id="modalEvidence"></p>
+        </div>
+
+      <!-- PHASE 9.5 — SCIENTIFIC EVIDENCE VIEWER -->
+      <section class="scientific-evidence" id="scientificEvidence">
+
+        <div class="evidence-heading">
+          <span class="eyebrow">TRACEABLE RESEARCH</span>
+          <h3>Scientific Evidence & References</h3>
+          <p>
+            Explore the mission documentation and scientific records
+            supporting this object's history.
+          </p>
+        </div>
+
+        <div class="evidence-status" id="evidenceStatus">
+          Evidence references are being loaded.
+        </div>
+
+        <div class="evidence-records" id="modalEvidenceItems">
+          <!-- JavaScript generates evidence references -->
+        </div>
+
+        <div class="evidence-provenance" id="imageEvidenceStatus">
+          Image attribution has not yet been independently verified.
+        </div>
+
+        <a class="evidence-archive-link"
+          href="https://pds.nasa.gov/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Explore NASA Planetary Data System ↗
+        </a>
+
+      </section>
+
+        <a id="modalSource" href="#" target="_blank"
+          rel="noopener" class="btn btn-primary">View NASA source ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="evidence.js"></script>
+
+  
+</body>
+</html>

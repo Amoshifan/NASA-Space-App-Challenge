@@ -1,0 +1,14 @@
+﻿mission_id,mission_name,planet,agency,mission_landing_date,mission_source_url,verification_status,notes
+APOLLO-11,Apollo 11,Moon,NASA,1969-07-20,https://www.nasa.gov/mission/apollo-11/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+SURVEYOR-3,Surveyor 3,Moon,NASA,1967-04-20,https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-035A,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+APOLLO-12,Apollo 12,Moon,NASA,1969-11-19,https://www.nasa.gov/mission/apollo-12/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+APOLLO-14,Apollo 14,Moon,NASA,1971-02-05,https://www.nasa.gov/mission/apollo-14/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+APOLLO-15,Apollo 15,Moon,NASA,1971-07-30,https://www.nasa.gov/mission/apollo-15/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+APOLLO-16,Apollo 16,Moon,NASA,1972-04-21,https://www.nasa.gov/mission/apollo-16/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+APOLLO-17,Apollo 17,Moon,NASA,1972-12-11,https://www.nasa.gov/mission/apollo-17/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+MARS-PATHFINDER,Mars Pathfinder,Mars,NASA,1997-07-04,https://science.nasa.gov/mission/mars-pathfinder/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+VIKING-1,Viking 1,Mars,NASA,1976-07-20,https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-075A,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+VIKING-2,Viking 2,Mars,NASA,1976-09-03,https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1975-083A,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+MARS-EXPLORATION-ROVER-A,Mars Exploration Rover A (Spirit),Mars,NASA,2004-01-04,https://science.nasa.gov/mission/mer-spirit/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+MARS-EXPLORATION-ROVER-B,Mars Exploration Rover B (Opportunity),Mars,NASA,2004-01-25,https://science.nasa.gov/mission/mer-opportunity/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.
+MARS-2020,Mars 2020 Perseverance,Mars,NASA,2021-02-18,https://science.nasa.gov/mission/mars-2020-perseverance/,source_candidate_not_claim_verified,Confirm current URL and mission/object relevance during evidence review.

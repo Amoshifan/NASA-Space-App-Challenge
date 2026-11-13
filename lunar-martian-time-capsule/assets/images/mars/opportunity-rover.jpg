@@ -1,0 +1,20 @@
+<svg xmlns="http://w3.org" viewBox="0 0 800 600" width="100%" height="100%">
+        <rect width="800" height="600" fill="#4A1A12"/>
+        <circle cx="400" cy="300" r="180" fill="none" stroke="#E2725B" stroke-width="2" stroke-dasharray="8 4" opacity="0.4"/>
+        <circle cx="400" cy="300" r="120" fill="none" stroke="#E2725B" stroke-width="4" opacity="0.7"/>
+        
+        <!-- Technical crosshairs -->
+        <line x1="400" y1="60" x2="400" y2="540" stroke="#E2725B" stroke-width="1" opacity="0.3"/>
+        <line x1="100" y1="300" x2="700" y2="300" stroke="#E2725B" stroke-width="1" opacity="0.3"/>
+        
+        <!-- Text details -->
+        <text x="400" y="270" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" fill="#F4A261" font-weight="bold" letter-spacing="4" text-anchor="middle">MARTIAN ARTIFACT</text>
+        <text x="400" y="315" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" fill="#FFFFFF" font-weight="bold" text-anchor="middle">Opportunity Rover</text>
+        <text x="400" y="350" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" fill="#F4A261" opacity="0.8" text-anchor="middle">ID: PIA05755</text>
+        
+        <!-- Frame corner decorations -->
+        <path d="M 40,60 L 40,40 L 60,40" stroke="#E2725B" stroke-width="3" fill="none"/>
+        <path d="M 740,60 L 740,40 L 720,40" stroke="#E2725B" stroke-width="3" fill="none"/>
+        <path d="M 40,540 L 40,560 L 60,560" stroke="#E2725B" stroke-width="3" fill="none"/>
+        <path d="M 740,540 L 740,560 L 720,560" stroke="#E2725B" stroke-width="3" fill="none"/>
+    </svg>

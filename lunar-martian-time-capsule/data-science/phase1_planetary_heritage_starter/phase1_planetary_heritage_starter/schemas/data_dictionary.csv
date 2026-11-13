@@ -1,0 +1,18 @@
+﻿field_name,data_type,definition,allowed_values_or_format
+object_id,string,Required unique stable identifier,
+object_name,string,Required common object name,
+planet,enum,Moon or Mars,Moon|Mars
+mission_id,string,Foreign key to missions.csv,
+object_category,string,"Lander, rover, instrument, descent hardware, etc.",
+landing_date,ISO date,Mission landing date; not necessarily object's deployment date,YYYY-MM-DD
+location_latitude,decimal,Latitude in documented planetary coordinate frame; blank if unknown,
+location_longitude,decimal,Longitude in documented planetary coordinate frame; blank if unknown,
+coordinate_system,string,Exact named coordinate reference/frame and source convention,
+location_type,enum,Type of location represented,landing_site|lander_position|rover_final_position|object_position|orbital_observation|estimated|unknown
+location_confidence,enum,Project assessment; explain in notes,high|medium|low|unknown
+evidence_status,enum,"Overall curation status, not a claim-level grade",pending_verification|partially_verified|verified|disputed|rejected
+primary_source_url,URL,A source URL directly supporting a defined claim,
+image_asset_id,string,Foreign key to images.csv,
+image_credit,string,Exact credit statement from source; never invent,
+last_verified,ISO date,Date the record was reviewed,YYYY-MM-DD
+verification_notes,string,"Uncertainty, conflicts, limitations and reviewer notes",

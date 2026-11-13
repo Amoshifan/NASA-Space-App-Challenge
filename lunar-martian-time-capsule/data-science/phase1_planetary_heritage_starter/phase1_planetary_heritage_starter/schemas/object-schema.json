@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Planetary Heritage Object Record",
+  "type": "object",
+  "required": [
+    "object_id",
+    "object_name",
+    "planet",
+    "mission_id",
+    "evidence_status"
+  ],
+  "properties": {
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "planet": {
+      "enum": [
+        "Moon",
+        "Mars"
+      ]
+    },
+    "mission_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "landing_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": -360,
+          "maximum": 360
+        },
+        "coordinate_system": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location_type": {
+          "enum": [
+            "landing_site",
+            "lander_position",
+            "rover_final_position",
+            "object_position",
+            "orbital_observation",
+            "estimated",
+            "unknown"
+          ]
+        },
+        "source_coordinate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidence_status": {
+      "enum": [
+        "pending_verification",
+        "partially_verified",
+        "verified",
+        "disputed",
+        "rejected"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "image_assets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
